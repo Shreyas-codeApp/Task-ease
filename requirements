@@ -1,7 +1,6 @@
 streamlit
-pandas
 firebase-admin
-datetime
+streamlit-option-menu
+pandas
 pytz
 altair
-
