@@ -1,6 +1,7 @@
 streamlit
 pandas
-firebase_admin
+firebase-admin
 datetime
 pytz
+
 altair
