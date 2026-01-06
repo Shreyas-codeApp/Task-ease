@@ -13,11 +13,17 @@ today_date = pytz.timezone('Asia/Kolkata').localize(
     datetime.datetime.now()
 ).strftime("%d %B, %Y")
 
-cred = credentials.Certificate(st.secrets["firebase"])
+firebase_secrets = dict(st.secrets["firebase"])
+
+database_url = firebase_secrets.pop("database")
+
+cred = credentials.Certificate(firebase_secrets)
+
 if not firebase_admin._apps:
     firebase_admin.initialize_app(cred, {
-        'databaseURL': st.secrets["firebase"]["database"]
+        "databaseURL": database_url
     })
+
 
 ref = db.reference('/')
 
@@ -438,4 +444,5 @@ if st.session_state.logged_in:
             st.write("Vedika Patil")
 
             
+
 
