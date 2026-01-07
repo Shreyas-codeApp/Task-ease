@@ -240,7 +240,7 @@ if st.session_state.logged_in:
                 c1,c2,c3 = st.columns(3)
                 c1.metric("✅ Completed", completed, f"{completed_pct:.1f}%",border=True)
                 c2.metric("⏳ Pending", pending, f"{on_time_pct:.1f}%", border = True)
-                c3.metric("❌ Overdue", pending, f"{overdue_pct:.1f}%", border = True)
+                c3.metric("❌ Overdue", overdue, f"{overdue_pct:.1f}%", border = True)
 
 
 
@@ -448,6 +448,7 @@ if st.session_state.logged_in:
             st.write("Vedika Patil")
 
             
+
 
 
 
