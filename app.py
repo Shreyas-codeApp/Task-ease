@@ -239,29 +239,29 @@ if st.session_state.logged_in:
         on_time_pct = (pending / total_tasks * 100) if total_tasks else 0
         overdue_pct = (overdue / total_tasks * 100) if total_tasks else 0
         col1,col2 = st.columns(2)
-            with col1:
-                st.subheader("📊 Task Overview")
-                st.metric("📋 Total Tasks", total_tasks)
-                with st.popover("View Breakdown"):
-                    c1,c2,c3 = st.columns(3)
-                    c1.metric("✅ Completed", completed,f"{completed_pct:.1f}%", border=True)
-                    c2.metric("⏳ Pending", pending,f"{on_time_pct:.1f}%", border = True)
-                    c3.metric("❌Overdue", overdue,f"{overdue_pct:.1f}%", border = True)
-            with col2:
-                pie_df = pd.DataFrame({
-                    "Status": ["Completed", "Pending", "Overdue"],
-                    "Count": [completed, pending, overdue]
-                })        
-                pie_chart = alt.Chart(pie_df).mark_arc(innerRadius=40).encode(
-                        theta=alt.Theta(field="Count", type="quantitative"),
-                        color=alt.Color(field="Status", type="nominal"),
-                        tooltip=["Status", "Count"]
-                    ).properties(
-                        width=300,
-                        height=300,
-                        title="Task Status Overview"
-                    )
-                st.altair_chart(pie_chart, use_container_width=False)
+        with col1:
+            st.subheader("📊 Task Overview")
+            st.metric("📋 Total Tasks", total_tasks)
+            with st.popover("View Breakdown"):
+                c1,c2,c3 = st.columns(3)
+                c1.metric("✅ Completed", completed,f"{completed_pct:.1f}%", border=True)
+                c2.metric("⏳ Pending", pending,f"{on_time_pct:.1f}%", border = True)
+                c3.metric("❌Overdue", overdue,f"{overdue_pct:.1f}%", border = True)
+        with col2:
+            pie_df = pd.DataFrame({
+                "Status": ["Completed", "Pending", "Overdue"],
+                "Count": [completed, pending, overdue]
+            })        
+            pie_chart = alt.Chart(pie_df).mark_arc(innerRadius=40).encode(
+                    theta=alt.Theta(field="Count", type="quantitative"),
+                    color=alt.Color(field="Status", type="nominal"),
+                    tooltip=["Status", "Count"]
+                ).properties(
+                    width=300,
+                    height=300,
+                    title="Task Status Overview"
+                )
+            st.altair_chart(pie_chart, use_container_width=False)
 
 
 
@@ -469,6 +469,7 @@ if st.session_state.logged_in:
             st.write("Vedika Patil")
 
             
+
 
 
 
