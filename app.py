@@ -226,7 +226,7 @@ if st.session_state.logged_in:
                 due = datetime.datetime.strptime(t["due_date"], "%Y-%m-%d").date()
                 if due >= today:
                     pending +=1
-                else:
+                elif due < today:
                     overdue +=1
                 
 
@@ -448,6 +448,7 @@ if st.session_state.logged_in:
             st.write("Vedika Patil")
 
             
+
 
 
 
