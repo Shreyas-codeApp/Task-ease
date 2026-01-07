@@ -48,7 +48,7 @@ if "logged_in" not in st.session_state:
 
 
 st.markdown("# :rainbow[TaskEase]")
-
+st.caption("Online To-do app")
 
 if not st.session_state.logged_in:
     selected = option_menu(
@@ -469,6 +469,7 @@ if st.session_state.logged_in:
             st.write("Vedika Patil")
 
             
+
 
 
 
