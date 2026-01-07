@@ -215,7 +215,7 @@ if st.session_state.logged_in:
         st.write(today_date)
         tasks = user_ref.child("tasks").get() or {}
         total_tasks = len(tasks)
-        completed, pending = 0,0
+        completed, pending,overdue = 0,0,0
         
         today = datetime.date.today()
 
@@ -226,17 +226,20 @@ if st.session_state.logged_in:
                 due = datetime.datetime.strptime(t["due_date"], "%Y-%m-%d").date()
                 if due >= today:
                     pending +=1
+                else:
+                    overdue +=1
 
         completed_pct = (completed / total_tasks * 100) if total_tasks else 0
         on_time_pct = (pending / total_tasks * 100) if total_tasks else 0
+        overdue_pct = (overdue/total_tasks * 100) if total tasks else 0
         with st.container(border =True):
             st.subheader("📊 Task Overview")
             st.metric("📋 Total Tasks", total_tasks,)
             with st.popover("View Breakdown"):
-                c1,c2 = st.columns(2)
+                c1,c2,c3 = st.columns(3)
                 c1.metric("✅ Completed", completed, f"{completed_pct:.1f}%",border=True)
                 c2.metric("⏳ Pending", pending, f"{on_time_pct:.1f}%", border = True)
-
+                c3.metric("❌ Overdue", overdue, f"{overdue_pct:.1f}%", border = True)
 
 
 
@@ -444,5 +447,6 @@ if st.session_state.logged_in:
             st.write("Vedika Patil")
 
             
+
 
 
