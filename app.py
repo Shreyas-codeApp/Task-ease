@@ -232,7 +232,7 @@ if st.session_state.logged_in:
 
         completed_pct = (completed / total_tasks * 100) if total_tasks else 0
         on_time_pct = (pending / total_tasks * 100) if total_tasks else 0
-        overdue_pct = (over / total_tasks * 100) if total_tasks else 0
+        overdue_pct = (overdue / total_tasks * 100) if total_tasks else 0
         with st.container(border =True):
             st.subheader("📊 Task Overview")
             st.metric("📋 Total Tasks", total_tasks,)
@@ -270,7 +270,7 @@ if st.session_state.logged_in:
 
     # -------- ADD TASK --------
     elif option == "Add Task":
-        st.subheader("➕ Add Task")
+        st.write("➕ Add Task")
 
         category = st.selectbox(
             "Category", ["College", "School", "Work", "Personal", "Others"]
@@ -448,6 +448,7 @@ if st.session_state.logged_in:
             st.write("Vedika Patil")
 
             
+
 
 
 
