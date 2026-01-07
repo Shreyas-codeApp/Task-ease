@@ -24,7 +24,12 @@ if not firebase_admin._apps:
         "databaseURL": database_url
     })
 
-
+st.set_page_config(
+    page_title="To-do list",
+    page_icon="📋",
+    layout="wide",
+    
+)
 ref = db.reference('/')
 
 
@@ -448,6 +453,7 @@ if st.session_state.logged_in:
             st.write("Vedika Patil")
 
             
+
 
 
 
